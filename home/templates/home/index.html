@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>{{ title}}</title>
+</head>
+<body>
+<main>
+    <header>
+        <h1>{{ title }}</h1>
+    </header>
+    <section>
+        <button id="button">Mostrar/Ocultar Tabela</button>
+        <table id="data-table">
+            <thead>
+                <tr>
+                    {% for header in headers %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </section>
+    <section>
+        {% if exibir_tabela %}
+        <table id="data-table2">
+            <thead>
+                <tr>
+                    {% for header in headers2 %}
+                        <th>{{ header }}</th>
+                    {% endfor %}
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data2 %}
+                    <tr>
+                        {% for cell in row %}
+                            <td>{{ cell }}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </section>
+</main>
+
+
+
+
+</body>
+
+<script src="{% static 'index.js' %}"></script>
+
+</html>
